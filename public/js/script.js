@@ -41,27 +41,48 @@ function sendProductToBag(i){
 
 
 function addProduct(i) {
-  const itemName = document.getElementsByClassName('product-title')[i].textContent
-  const itemPrice = document.getElementsByClassName('product-price')[i].textContent
+  const name = document.getElementsByClassName('product-title')[i].textContent
+  const price = document.getElementsByClassName('product-price')[i].textContent
   const productImg = document.getElementsByClassName('card-image')[i].src
+
+
   
+
+   
   
 
   const cardProduct = document.createElement('article');
   cardProduct.classList.add('product-item');
 
+  // const cardProductContent  = `
+  //     <img class="card-img" src="${productImg}" alt="card img">
+  //   <div class="product-content-container">
+  //     <h3 class="product-title">${name}<h3>
+  //     <p class="product-price">${price}</p>
+  //   </div>
+  //   <div class="quantity-btn-content">
+  //     <button class="decrease-btn"><i class="bi bi-dash-square"></i></button>
+  //       <span class="card-output">0</span>
+  //     <button class="increase-btn"><i class="bi bi-plus-square"></i></button>
+  //   </div>
+  // `
+
+  
+  const cardProductContent = document.createElement('div');
+  cardProductContent.classList.add('product-card-content');
+
   const cardImg = document.createElement('img');
   cardImg.classList.add('card-img');
-  cardImg.src = productImg
+  cardImg.src = `${productImg}`
 
   const productContent = document.createElement('div');
   productContent.classList.add('product-content-container');
 
   const productName = document.createElement('h3');
-  productName.textContent = itemName
+  productName.textContent = `${name}` 
 
   const cardPrice = document.createElement('p');
-  cardPrice.textContent = `${itemPrice}`
+  cardPrice.textContent = `${price}`
 
   const quantityBtn = document.createElement('div')
   quantityBtn.classList.add('quantity-btn-content')
@@ -81,23 +102,32 @@ function addProduct(i) {
 
   
 
-  insertBtn.addEventListener('click', function(){
-    const productQuantity = document.getElementsByClassName('.card-output')[i];
-    const quantityOutput = Number(productQuantity.innerText) + 1
+  // insertBtn.addEventListener('click', function(){
+  //   const productQuantity = document.getElementsByClassName('.card-output')[i];
+  //   const quantityOutput = Number(productQuantity.innerText) + 1
 
-    if (quantityOutput > 10 ){
-      quantityOutput = 0
-    }
+  //   if (quantityOutput > 10 ){
+  //     quantityOutput = 0
+  //   }
 
-    quantityOutput.innerText = productQuantity
-  })
+  //   quantityOutput.innerText = productQuantity
+  // })
 
 
   quantityBtn.append(decreaseBtn, cardOutput, insertBtn )
   productContent.append(productName, cardPrice)
-  cardProduct.append(cardImg, productContent, quantityBtn)
+  cardProductContent.append(cardImg, productContent, quantityBtn)
+  cardProduct.append(cardProductContent)
+
+  
+  cardProduct.innerHTML = cardProductContent
+
+   if (productName.innerText === name) {
+      
+   }
+ 
   bagContainer.appendChild(cardProduct)
-  console.log(cardProduct)
+  console.log(cardProductContent)
 
 
 }

@@ -173,7 +173,13 @@ header {
   flex-wrap: wrap;
   align-items: center;
   border-radius: 15px;
+}
 
+.product-card-content {
+  display: flex;
+ justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 
@@ -210,6 +216,13 @@ header {
   box-shadow: 0 6px 14px -8px;
   display: flex;
   justify-content: space-between;
+}
+
+.product-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .product-card-content {
