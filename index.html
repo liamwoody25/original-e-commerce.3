@@ -27,6 +27,7 @@
             </div>
             <div class="quantity-btn-content">
                 <button class="decrease-btn"><i class="bi bi-dash-square"></i></button>
+                <!-- <input type="number" class="card-output" value="0"> -->
                 <span class="card-output">0</span>
                 <button class="increase-btn"><i class="bi bi-plus-square"></i></button>
             </div>
@@ -43,17 +44,17 @@
     </header>
 
   <div class="product-cards">
-    <article class="product-card">
+    <article  class="product-card">
       <div class="product-card-content">
           <img class="card-image" src="./public/assets/images/pexels-dlxmedia-hu-maccbook.png" alt="image of laptop">
-        <div class="card-text-content">
+        <div data-card="product" class="card-text-content">
           <h3 class="product-title">Macbook</h3>
           <p class="sub-title">laptop</p>
           <p class="product-price">$899</p>
         </div>
       <!---- btn-content ---->
         <div class="btn-content">
-            <button aria-label="item-btn" data-item-id="1" class="item-btn" >Add To Bag</button>
+            <button aria-label="item-btn" data-product-id="1" class="item-btn" >Add To Bag</button>
         </div>
        <!---- btn-content ---->
        </div>
@@ -72,7 +73,7 @@
       
       <!---- btn-content ---->
         <div class="btn-content">
-            <button aria-label="item-btn" data-item-id="2" class="item-btn">Add To Bag</button>
+            <button aria-label="item-btn" data-product-id="2" class="item-btn">Add To Bag</button>
       
       <!---- btn-content ---->
       </div>

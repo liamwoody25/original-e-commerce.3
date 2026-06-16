@@ -82,8 +82,11 @@ h3 {
 }
 
 .card-output {
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  width: 20px;
   font-size: 16px;
-  color: #fff;
 }
 
 
