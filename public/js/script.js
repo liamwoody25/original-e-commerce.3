@@ -6,46 +6,52 @@ const bagContainer = document.querySelector('.cart-content');
 const products = [
   {
     name: 'Macbook',
-    price: 899,
     image: './public/assets/images/pexels-dlxmedia-hu-maccbook.png',
-    id: 1
+    price: 899,
+    id: 0
   },
-  // {
-  //   name: 'Android',
-  //   price: 399,
-  //   image: './public/assets/imagesandrey-matveev-msartwatch-unsplash.png',
-  //   id: 2
-  // }
+  {
+    name: 'Android',
+    image: './public/assets/imagesandrey-matveev-msartwatch-unsplash.png',
+    price: 399,
+    id: 0
+  }
 ]
 
-function addProduct(product, i) {
+const bagOutput = [
+  {bagQuan: 0, bagTotal: 0}
+]
 
+// this function sends the product to the cart when the purchase btn is clicked
+function sendProductToBag(product, i) {
+  const bagOutput = document.getElementById('bag-output');
+  const displayQuantity = Number(bagOutput.innerText) + 1;
 
-   product.id = 1
-
-  let productCard = {
-    [products.id]:products
+  if (displayQuantity > 10) {
+    displayQuantity = 0;
   }
 
-  console.log(products)
-  
- 
+  bagOutput.innerText = displayQuantity
 
-
-  const cardProduct = document.createElement('article');
-  cardProduct.classList.add('product-card');
-
-  const productName = document.createElement('h3');
-  productName.classList.add('product-title')
-  productName.innerText = products.name
-
-
-  cardProduct.append(productName)
-  bagContainer.appendChild(cardProduct)
-
-
- 
+  addProduct(product, i)
 }
+
+
+// this function is for adding multiple products to the cart
+function addProduct(product) {
+  
+  product.id += 1
+  
+  let productCard = {
+    [product.name]: product
+  }
+
+  productCard[product.name].id
+  
+  console.log(productCard)
+}
+
+
 
 
 function displayBag() {
@@ -56,11 +62,14 @@ function displayBag() {
   }
 } 
 
-productBtn.forEach(function(btn, i){
-  btn.addEventListener('click', function(){
-    addProduct(products, i)
+
+
+for (let i = 0; i < productBtn.length; i++) {
+   productBtn[i].addEventListener('click', function(){
+    sendProductToBag(products[i], [i])
+    
   })
-})
+}
 
 bagBtn.addEventListener('click', function(){
   displayBag()
