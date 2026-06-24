@@ -7,25 +7,21 @@ const bagOffScreen = document.querySelector('.shopping-section')
 
 const bag = []
 
+ 
 
 
 function addProduct(i) {
-  const productTitle = productItem[i].dataset.title
-  const itemId = productItem[i].dataset.itemId
-  const itemPrice = productItem[i].dataset.price
-  const cardImg = document.getElementsByClassName('card-image')[0].src
-  
 
-  const ProductCard = bag.find(function(cardProduct){
-    return cardProduct.id === itemId
-  }) 
-
-  // console.log(productTitle, itemId, itemPrice)
-  console.log(ProductCard)
-  
-
+   const product = {
+    name: 'Macbook',
+    price: 899,
+    id: 0
+  }
 
   
+  bag.push(product)
+
+  console.log(bag[0])
 
  
 }
@@ -44,6 +40,8 @@ function displayBag() {
 
 for(let i = 0; i < productItem.length; i++){
   productItem[i].addEventListener('click', function(){
+  
+
   addProduct(i)
   
   })
@@ -54,3 +52,7 @@ cartBtn.addEventListener('click', function(){
 })
 
 
+    // const productTitle = productItem[i].dataset.title
+    // const itemId = productItem[i].dataset.itemId
+    // const itemPrice = productItem[i].dataset.price
+    // const cardImg = document.getElementsByClassName('card-image')[0].src
