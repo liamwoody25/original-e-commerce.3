@@ -1,58 +1,32 @@
-const productItem = document.getElementsByClassName('item-btn')
-const cartBtn = document.querySelector('.bi-bag');
-const bagContainer = document.querySelector('.cart-content');
-const bagOffScreen = document.querySelector('.shopping-section')
-
-
+const productBtn = document.querySelector('.item-btn');
 
 const bag = []
 
- 
-
-
-function addProduct(i) {
-
-   const product = {
-    name: 'Macbook',
-    price: 899,
-    id: 0
+function addProduct(name, price) {
+  const product = {
+    name: name,
+    price: price,
+    quan: 1
   }
-
-  
   bag.push(product)
-
-  console.log(bag[0])
-
  
 }
 
-function displayBag() {
-  if (cartBtn.classList.toggle('enable')){
-    bagOffScreen.classList.toggle('enable');
-  } else {
-    bagOffScreen.classList.toggle('enable');
+function updateBag() {
+
+  console.log(`i have ${bag.length} products in my bag`)
+
+  for (let i = 0; i < bag.length; i++) {
+   console.log(`${bag[i].name} ${bag[i].price} x ${bag[i].quan}`)
   }
+  
 }
 
 
-
-
-
-for(let i = 0; i < productItem.length; i++){
-  productItem[i].addEventListener('click', function(){
   
-
-  addProduct(i)
-  
+  productBtn.addEventListener('click', function(){
+  addProduct('Macbook', 899)
+  addProduct('Macbook', 899)
+  addProduct('android', 399)
+  updateBag()
   })
-}
-
-cartBtn.addEventListener('click', function(){
- displayBag()
-})
-
-
-    // const productTitle = productItem[i].dataset.title
-    // const itemId = productItem[i].dataset.itemId
-    // const itemPrice = productItem[i].dataset.price
-    // const cardImg = document.getElementsByClassName('card-image')[0].src
